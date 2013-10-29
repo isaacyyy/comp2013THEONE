@@ -61,7 +61,7 @@
     echo "<h3>Your Search Results!</h3>";
     }
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl WHERE name='name'";
+    $sql_select = "SELECT * FROM registration_tbl WHERE name=".'$name';
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll(); 
     if(count($registrants) > 0) {
