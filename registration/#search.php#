@@ -79,7 +79,7 @@
         }
         echo "</table>";
     } else {
-        echo "<h3>No one is currently registered with that name.</h3>";
+        echo "<h3>No one is currently registered with that name.1</h3>";
     }
 ?>
 </body>
