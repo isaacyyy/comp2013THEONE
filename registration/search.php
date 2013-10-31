@@ -62,7 +62,7 @@
     }
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
-    $stmt->bindParam(1,$name);
+    $sth->bindParam(1, $name, PDO::PARAM_STR);
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll(); 
     if(count($registrants) > 0) {
