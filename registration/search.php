@@ -63,7 +63,7 @@
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%' VALUES (?)";
     $stmt = $conn->query($sql_select);
-    $stmt->bindParam(1, $name);
+    $stmt->bindValue(1, $name);
     $registrants = $stmt->fetchAll(); 
     if(count($registrants) > 0) {
         echo "<h2>Search Results:</h2>";
