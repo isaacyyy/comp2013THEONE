@@ -58,9 +58,9 @@
     echo "<h3>Your Search Results!</h3>";
     }
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%' VALUE (?)";
-    $stmt = $conn->prepare($sql_select);
+    $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%' VALUES (?)";
     $stmt->bindValue(1, $name);
+    $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
     if(count($registrants) > 0) {
