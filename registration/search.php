@@ -58,12 +58,11 @@
     echo "<h3>Your Search Results!</h3>";
     }
     // Retrieve data
-    /*$sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
-    $stmt->bindParam("?", $name);
-    $stmt = $conn->query($sql_select);
-    $registrants = $stmt->fetchAll();*/
-    $stmt = $dbh->prepare("SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
-    $stmt->(execute($name));
+    $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
+    $stmt = $conn->prepare($sql_select);
+    $stmt->bindValue("1", $name);
+    $stmt->execute();
+    $registrants = $stmt->fetchAll();
     if(count($registrants) > 0) {
         echo "<h2>Search Results:</h2>";
         echo "<table>";
