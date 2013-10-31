@@ -38,13 +38,10 @@
     catch(Exception $e){
         die(var_dump($e));
     }
-    // Insert registration info
+    // Insert search info
     if(!empty($_POST)) {
     try {
         $name = $_POST['name'];
-        $email = $_POST['email'];
-        $company = $_POST['company'];
-        $date = date("Y-m-d");
         // Insert data
         /*$sql_insert = "INSERT INTO registration_tbl (name, email, company, date) 
                    VALUES (?,?,?,?)";
@@ -61,10 +58,12 @@
     echo "<h3>Your Search Results!</h3>";
     }
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
+    /*$sql_select = "SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
     $stmt->bindParam("?", $name);
     $stmt = $conn->query($sql_select);
-    $registrants = $stmt->fetchAll(); 
+    $registrants = $stmt->fetchAll();*/
+    $stmt = $dbh->prepare("SELECT * FROM registration_tbl WHERE name LIKE '%".?."%'";
+			  $stmt->(execute($name));
     if(count($registrants) > 0) {
         echo "<h2>Search Results:</h2>";
         echo "<table>";
